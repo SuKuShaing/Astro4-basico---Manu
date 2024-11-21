@@ -1,0 +1,20 @@
+---
+// Astro.props guarda las propiedades que se le pasan al componente
+// const { post } =  Astro.props // dado que dentro de ese objeto se encuentra title y description
+const { post: { title, description } } =  Astro.props // dado que dentro de ese objeto se encuentra title y description
+// Se puede hacer un segundo destructuring de las propiedades que se le pasan al componente
+---
+
+<article class="bg-[#1f2937] text-white max-w-sm px-5 py-6 flex flex-col gap-2 rounded">
+	<img
+		src="https://images.pexels.com/photos/28193003/pexels-photo-28193003/free-photo-of-vista-aerea-panoramica-de-monaco-al-anochecer.jpeg"
+		alt=""
+        class="rounded"
+	/>
+    <h2 class="text-2xl font-bold">{title}</h2>
+    <p>{description}</p>
+    <p class="text-zinc-300">
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Consequatur error ut excepturi? Consectetur, suscipit quis temporibus voluptatum harum voluptates impedit rerum modi, quos ullam labore, error tempore. Magnam, error distinctio.
+    </p>
+    <p class="text-zinc-300">10/12/2023 - 16 min read</p>
+</article>
