@@ -1,0 +1,12 @@
+---
+import DefaultLayout from '../layouts/DefaultLayout.astro'
+---
+<DefaultLayout>
+    <!-- Esto se ve a renderizar en el slot header del layout -->
+	<meta slot="header" charset="utf-8" />
+	<link slot="header" rel="icon" type="image/svg+xml" href="/favicon.svg" />
+	<meta slot="header" name="viewport" content="width=device-width" />
+	<meta slot="header" name="generator" content={Astro.generator} />
+	<title slot="header">About</title>     
+    <h1>bienvenido a mi página de about</h1>
+</DefaultLayout>

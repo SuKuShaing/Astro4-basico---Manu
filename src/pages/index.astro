@@ -1,29 +1,29 @@
 ---
 import Post from "../components/Post.astro";
+import DefaultLayout from "../layouts/DefaultLayout.astro";
 // top level await, permite ocupar await sin envolverlo en una función async
 const response = await fetch("http://localhost:3000/posts");
 const posts = await response.json();
-
 ---
 
-<html lang="en">
-	<head>
-		<meta charset="utf-8" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<meta name="viewport" content="width=device-width" />
-		<meta name="generator" content={Astro.generator} />
-		<title>Astro</title>
-	</head>
-	<body>
-		<h1 class="text-center text-3xl font-bold mb-6 mt-3">Mis Posts</h1>
-		<!-- <Post title="Mi post nuevo" description="La descripción de mi post" /> -->
-		<!-- <Post post={{title: "Mi post nuevo", description: "La descripción de mi post"}} los primeros parentesis son para que interprete js /> -->
-		<!-- <Post post={{
-			title: "Mi post nuevo",
-			description: "La descripción de mi post"
+<DefaultLayout>
+	<!-- Esto se ve a renderizar en el slot header del layout -->
+	<meta slot="header" charset="utf-8" />
+	<link slot="header" rel="icon" type="image/svg+xml" href="/favicon.svg" />
+	<meta slot="header" name="viewport" content="width=device-width" />
+	<meta slot="header" name="generator" content={Astro.generator} />
+	<title slot="header">My Astro App</title> 
+
+
+	<h1 class="text-center text-3xl font-bold mb-6 mt-3">Mis Posts</h1>
+
+	<!-- <Post title="Mi post nuevo" description="La descripción de mi post" /> -->
+	<!-- <Post post={{title: "Mi post nuevo", description: "La descripción de mi post"}} los primeros parentesis son para que interprete js /> -->
+	<!-- <Post post={{
+		title: "Mi post nuevo",
+		description: "La descripción de mi post"
 		}} /> -->
-		<div class="grid max-w-7xl mx-auto w-full justify-center justify-items-center items-center gap-4 grid-cols-3" >
-			{posts.map(post => (<Post post={post} />))}
-		</div>
-	</body>
-</html>
+	<div class="grid max-w-7xl mx-auto w-full justify-center justify-items-center items-center gap-4 grid-cols-3">
+		{posts.map((post) => <Post post={post} />)}
+	</div>
+</DefaultLayout>
