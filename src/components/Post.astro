@@ -1,7 +1,7 @@
 ---
 // Astro.props guarda las propiedades que se le pasan al componente
 // const { post } =  Astro.props // dado que dentro de ese objeto se encuentra title y description
-const { post: { title, description } } =  Astro.props // dado que dentro de ese objeto se encuentra title y description
+const { post: { title, description, content, author, created_at } } =  Astro.props // dado que dentro de ese objeto se encuentra title y description
 // Se puede hacer un segundo destructuring de las propiedades que se le pasan al componente
 ---
 
@@ -14,7 +14,9 @@ const { post: { title, description } } =  Astro.props // dado que dentro de ese 
     <h2 class="text-2xl font-bold">{title}</h2>
     <p>{description}</p>
     <p class="text-zinc-300">
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Consequatur error ut excepturi? Consectetur, suscipit quis temporibus voluptatum harum voluptates impedit rerum modi, quos ullam labore, error tempore. Magnam, error distinctio.
+        {content.slice(0, 100) + "..."}
     </p>
-    <p class="text-zinc-300">10/12/2023 - 16 min read</p>
+    <!-- <p class="text-zinc-300">{created_at.slice(0, -10)}</p> -->
+    <p class="text-zinc-300">{new Date(created_at).toLocaleDateString()}</p>
+    <!-- <p class="text-zinc-300">10/12/2023 - 16 min read</p> -->
 </article>

@@ -1,6 +1,8 @@
 ---
 import Post from "../components/Post.astro";
-
+// top level await, permite ocupar await sin envolverlo en una función async
+const response = await fetch("http://localhost:3000/posts");
+const posts = await response.json();
 
 ---
 
@@ -13,24 +15,15 @@ import Post from "../components/Post.astro";
 		<title>Astro</title>
 	</head>
 	<body>
-		<h1>Astro</h1>
+		<h1 class="text-center text-3xl font-bold mb-6 mt-3">Mis Posts</h1>
 		<!-- <Post title="Mi post nuevo" description="La descripción de mi post" /> -->
 		<!-- <Post post={{title: "Mi post nuevo", description: "La descripción de mi post"}} los primeros parentesis son para que interprete js /> -->
-		<Post post={{
+		<!-- <Post post={{
 			title: "Mi post nuevo",
 			description: "La descripción de mi post"
-		}} />
-		<Post post={{
-			title: "Mi 2do post nuevo",
-			description: "La descripción de mi post"
-		}} />
-		<Post post={{
-			title: "Mi 3er componente",
-			description: "La descripción de mi post"
-		}} />
-		<Post post={{
-			title: "Mi tal vez último post",
-			description: "La descripción de mi post"
-		}} />
+		}} /> -->
+		<div class="grid max-w-7xl mx-auto w-full justify-center justify-items-center items-center gap-4 grid-cols-3" >
+			{posts.map(post => (<Post post={post} />))}
+		</div>
 	</body>
 </html>
