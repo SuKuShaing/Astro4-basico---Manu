@@ -1,0 +1,15 @@
+---
+import type { GetStaticPaths } from "astro";
+import DefaultLayout from "../../layouts/DefaultLayout.astro";
+
+export async function getStaticPaths() {
+
+    // traemos esto para saber cuantos post hay
+    const response = await fetch("http://localhost:3000/posts");
+    const posts = await response.json();
+}
+---
+
+<DefaultLayout>
+
+</DefaultLayout>

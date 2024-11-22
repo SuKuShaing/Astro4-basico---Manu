@@ -1,7 +1,9 @@
 ---
 import Post from "../components/Post.astro";
 import DefaultLayout from "../layouts/DefaultLayout.astro";
+
 // top level await, permite ocupar await sin envolverlo en una función async
+// con esto traemos los posts de la api al momento del compilado
 const response = await fetch("http://localhost:3000/posts");
 const posts = await response.json();
 ---
