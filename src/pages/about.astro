@@ -1,5 +1,6 @@
 ---
 import DefaultLayout from '../layouts/DefaultLayout.astro'
+import { Button } from '../components/Button';
 ---
 <DefaultLayout>
     <!-- Esto se ve a renderizar en el slot header del layout -->
@@ -9,4 +10,5 @@ import DefaultLayout from '../layouts/DefaultLayout.astro'
 	<meta slot="header" name="generator" content={Astro.generator} />
 	<title slot="header">About</title>     
     <h1>bienvenido a mi página de about</h1>
+	<Button client:visible/>
 </DefaultLayout>
