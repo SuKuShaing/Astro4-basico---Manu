@@ -3,11 +3,18 @@
 Siguiendo el tutorial de Manu Martin
 https://youtu.be/FafJOvhnGos?si=wSb3sChrIdgiHlWM
 
+
 Instalamos Json Server para simular un servidor que nos envíe datos
 https://www.npmjs.com/package/json-server
 
+Para que se puedan hacer las solicitudes get con fetch, hay que levantar el servidor primero con
+`$ npx json-server db.json`
+
 También para obtener datos se pudo haber ocupado
 https://jsonplaceholder.typicode.com/posts
+
+
+
 
 
 
